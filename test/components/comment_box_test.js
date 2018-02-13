@@ -4,7 +4,6 @@ import CommentBox from '../../src/components/comment_box';
 // library being used for testing: https://github.com/chaijs/chai-jquery
 
 describe('CommentBox', () => {
-
 	let component;
 
 	// function that is run before every 'it' statement:
@@ -15,7 +14,6 @@ describe('CommentBox', () => {
 	})
 
 	it('has a textarea', () => {
-
 		// component here actually returns a jquery object that contains our react component:
 		// since 'component' is actually a jquery object, we can use the .find method in jquery:
 		// - expect(), .to and .exist all are from chai-jquery
@@ -28,9 +26,9 @@ describe('CommentBox', () => {
 
 	// if we have 'it' statements that are closely related then we can have a nested 'describe' statement:
 	describe('entering some text', () => {
-
 		// the .beforeEach above is stil usable here. We can create another one just for the 'it' statements below:
-		// - however, before the 'it' statement functions below are run the beforeEach above will be run , followed by the one in this file.
+		// - however, before the 'it' statement functions below are run the beforeEach above will be run , followed 
+		//   by the one in this file.
 		
 		// - beforeEach() below will be used to populate the text area
 		beforeEach(() => {
@@ -40,15 +38,14 @@ describe('CommentBox', () => {
 			component.find('textarea').simulate('change', 'new comment');
 		});
 
-		it('shows text that is entered in text area', () => {
+		it('shows text that is entered in textarea', () => {
 			expect(component.find('textarea')).to.have.value('new comment');
 		});
 	
-		it('when submitted, clears the input', () => {
-	
+		it('when submitted, clears the textarea input', () => {
+			// since the component is a form element we can simulate a submit action on it.
+			component.simulate('submit');
+			expect(component.find('textarea')).to.have.value('');
 		});
-
-	})
-	
-			
+	});
 });
