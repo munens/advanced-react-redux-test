@@ -28,11 +28,15 @@ describe('App', () => {
 
   });*/
 
-
   // let us show that our app has a child component 'CommentBox':
   it('shows a comment Box', () => {
     expect(component.find('.comment-box')).to.exist;
   });
+
+  // let us show that our app has a comment list:
+  it('shows a comment list', () => {
+    expect(component.find('.comment-list')).to.exist;
+  })
 })
 
 
