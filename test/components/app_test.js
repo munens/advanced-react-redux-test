@@ -20,7 +20,7 @@ describe('App', () => {
     const component = renderComponent(App);
     
     // 'expect' is used to make an assertion about a target:
-    expect(component).to.contain('React starter');
+    expect(component).to.contain('React simple starter');
 
   });
 })
